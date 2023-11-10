@@ -1,5 +1,8 @@
 String kTemplate = 'template';
 
+
+String kScan = 'scan';
+
 String kName = 'name';
 String kId = 'id';
 String kSprites = 'sprites';
