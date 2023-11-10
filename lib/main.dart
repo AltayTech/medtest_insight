@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/core/widgets/main_wrapper.dart';
+import 'package:medtest_insight/features/home_screen/presentation/providers/home_screen_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'features/home_screen/presentation/pages/home_screen.dart';
@@ -14,7 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => HomeScreenProvider(),
+        ),
+      ],
       child: MaterialApp(
         title: 'MedTest Insight',
         theme: ThemeData(
@@ -22,11 +27,10 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: MainWrapper(),
-         routes: {
-      HomeScreen.routeName: (ctx) => HomeScreen(),
-      MainWrapper.routeName: (ctx) => MainWrapper(),
-
-      },
+        routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+          MainWrapper.routeName: (ctx) => MainWrapper(),
+        },
       ),
     );
   }
