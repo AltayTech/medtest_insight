@@ -5,7 +5,6 @@ import 'app_background.dart';
 import 'bottom_nav.dart';
 import 'drawer_menu.dart';
 
-
 class MainWrapper extends StatelessWidget {
   MainWrapper({Key? key}) : super(key: key);
   static const routeName = '/MainWrapper';
@@ -16,7 +15,6 @@ class MainWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> pageViewWidget = [
       const HomeScreen(),
-
     ];
     // var height = MediaQuery.of(context).size.height;
     return SafeArea(

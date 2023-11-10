@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class BottomNav extends StatelessWidget {
   final PageController pageController;
 
-  BottomNav({Key? key, required this.pageController}) : super(key: key);
+  BottomNav({
+    Key? key,
+    required this.pageController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
