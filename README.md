@@ -8,3 +8,8 @@ Application for analyse medical tests and give result to user
 
 This project is  a Flutter application.
 
+
+
+# Technical 
+
+- Clean Architecture
