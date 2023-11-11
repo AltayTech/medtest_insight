@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medtest_insight/core/widgets/main_wrapper.dart';
 import 'package:medtest_insight/features/home_screen/presentation/providers/home_screen_provider.dart';
 import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
+import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'features/home_screen/presentation/pages/home_screen.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => HomeScreenProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ScanProvider(),
         ),
       ],
       child: MaterialApp(
