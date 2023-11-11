@@ -1,6 +1,10 @@
+import 'package:image_picker/image_picker.dart';
+
 class ScanEntity {
-  final String scan;
+  final int? id;
+  final ImagePicker? image;
   const ScanEntity({
-    required this.scan,
+    required this.id,
+    required this.image,
   });
 }

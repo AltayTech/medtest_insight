@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,7 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         /// Add bottom to navigate to scan screen
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(ScanScreen.routeName);
+          },
           child: Text('Scan Test result'),
         ),
       ),
