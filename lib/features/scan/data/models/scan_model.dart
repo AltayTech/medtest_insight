@@ -1,11 +1,11 @@
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../business/entities/scan_entity.dart';
 
 class ScanModel extends ScanEntity {
   const ScanModel({
     required int id,
-    required ImagePicker image,
+    required ImageProvider image,
   }) : super(
           id: id,
           image: image,

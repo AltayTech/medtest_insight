@@ -1,8 +1,9 @@
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter/widgets.dart';
 
 class ScanEntity {
   final int? id;
-  final ImagePicker? image;
+  final ImageProvider? image;
+
   const ScanEntity({
     required this.id,
     required this.image,

@@ -1,4 +1,4 @@
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter/widgets.dart';
 
 class NoParams {}
 
@@ -6,7 +6,7 @@ class TemplateParams {}
 
 class ScanParams {
   final int? id;
-  final ImagePicker? image;
+  final ImageProvider? image;
 
   ScanParams({
     required this.id,
