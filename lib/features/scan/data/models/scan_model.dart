@@ -1,22 +1,24 @@
-import '../../../../../core/constants/constants.dart';
+import 'package:flutter/widgets.dart';
+
 import '../../business/entities/scan_entity.dart';
 
 class ScanModel extends ScanEntity {
   const ScanModel({
-    required String scan,
+    required int id,
+    required ImageProvider image,
   }) : super(
-          scan: scan,
+          id: id,
+          image: image,
         );
 
   factory ScanModel.fromJson({required Map<String, dynamic> json}) {
-    return ScanModel(
-      scan: json[kScan],
-    );
+    return ScanModel(id: json['id'], image: json['image']);
   }
 
   Map<String, dynamic> toJson() {
     return {
-      kScan: scan,
+      'id': id,
+      'image': image,
     };
   }
 }

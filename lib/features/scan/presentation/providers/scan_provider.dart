@@ -1,7 +1,5 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
-
 import 'package:dio/dio.dart';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,7 +35,10 @@ class ScanProvider extends ChangeNotifier {
     );
 
     final failureOrScan = await GetScan(scanRepository: repository).call(
-      scanParams: ScanParams(),
+      scanParams: ScanParams(
+        id: scan!.id,
+        image: scan!.image,
+      ),
     );
 
     failureOrScan.fold(

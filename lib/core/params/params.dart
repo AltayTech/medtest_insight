@@ -1,11 +1,15 @@
+import 'package:flutter/widgets.dart';
+
 class NoParams {}
 
 class TemplateParams {}
-class ScanParams {}
 
-class PokemonParams {
-  final String id;
-  const PokemonParams({
+class ScanParams {
+  final int? id;
+  final ImageProvider? image;
+
+  ScanParams({
     required this.id,
+    required this.image,
   });
 }

@@ -1,6 +1,11 @@
+import 'package:flutter/widgets.dart';
+
 class ScanEntity {
-  final String scan;
+  final int? id;
+  final ImageProvider? image;
+
   const ScanEntity({
-    required this.scan,
+    required this.id,
+    required this.image,
   });
 }
