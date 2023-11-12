@@ -4,9 +4,24 @@ import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart
 import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
 import 'package:provider/provider.dart';
 
-class ScanScreen extends StatelessWidget {
+class ScanScreen extends StatefulWidget {
   const ScanScreen({Key? key}) : super(key: key);
   static const routeName = '/ScanScreen';
+
+  @override
+  State<ScanScreen> createState() => _ScanScreenState();
+}
+
+class _ScanScreenState extends State<ScanScreen> {
+  @override
+  void initState() {
+    ScanProvider scanProvider =
+        Provider.of<ScanProvider>(context, listen: false);
+
+    Provider.of<ScanProvider>(context, listen: false).eitherFailureOrScan();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

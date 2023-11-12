@@ -1,36 +1,39 @@
 import 'package:dartz/dartz.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:medtest_insight/features/scan/data/datasources/scan_storage_data_source.dart';
 
 import '../../../../../core/connection/network_info.dart';
 import '../../../../../core/errors/exceptions.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../../../../core/params/params.dart';
 import '../../business/repositories/scan_repository.dart';
+import '../../presentation/providers/scan_provider.dart';
 import '../datasources/scan_local_data_source.dart';
-import '../datasources/scan_remote_data_source.dart';
 import '../models/scan_model.dart';
 
 class ScanRepositoryImpl implements ScanRepository {
-  final ScanRemoteDataSource remoteDataSource;
+  final ScanStorageDataSource storageDataSource;
   final ScanLocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
   ScanRepositoryImpl({
-    required this.remoteDataSource,
+    required this.storageDataSource,
     required this.localDataSource,
     required this.networkInfo,
   });
 
   @override
   Future<Either<Failure, ScanModel>> getScan(
-      {required ScanParams scanParams}) async {
+      // {required ScanParams scanParams}
+      ) async {
     if (await networkInfo.isConnected!) {
       try {
-        ScanModel remoteScan =
-            await remoteDataSource.getScan(scanParams: scanParams);
+        ScanModel storageScan =
+            await storageDataSource.getScan(imageSource: ImageSource.gallery);
 
-        localDataSource.cacheScan(scanToCache: remoteScan);
+        localDataSource.cacheScan(scanToCache: storageScan);
 
-        return Right(remoteScan);
+        return Right(storageScan);
       } on ServerException {
         return Left(ServerFailure(errorMessage: 'This is a server exception'));
       }

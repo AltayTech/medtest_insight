@@ -4,7 +4,7 @@ import '../../business/entities/scan_entity.dart';
 
 class ScanModel extends ScanEntity {
   const ScanModel({
-    required int id,
+     int id=0,
     required ImageProvider image,
   }) : super(
           id: id,

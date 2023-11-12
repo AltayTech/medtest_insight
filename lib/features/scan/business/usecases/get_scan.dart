@@ -10,9 +10,13 @@ class GetScan {
 
   GetScan({required this.scanRepository});
 
-  Future<Either<Failure, ScanEntity>> call({
-    required ScanParams scanParams,
-  }) async {
-    return await scanRepository.getScan(scanParams: scanParams);
+  Future<Either<Failure, ScanEntity>> call(
+  //     {
+  //   required ScanParams scanParams,
+  // }
+  ) async {
+    return await scanRepository.getScan(
+    // scanParams: scanParams
+    );
   }
 }
