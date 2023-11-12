@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/core/errors/failure.dart';
-import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart';
 import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
+import 'package:medtest_insight/features/scan/presentation/widgets/picture_widget.dart';
 import 'package:provider/provider.dart';
 
 class ScanScreen extends StatefulWidget {
@@ -20,37 +19,15 @@ class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ScanEntity? scan = Provider.of<ScanProvider>(context).scan;
-    Failure? failure = Provider.of<ScanProvider>(context).failure;
-
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-
-    debugPrint(scan?.image.toString());
-    debugPrint(failure.toString());
-
-    late Widget widget;
-    if (scan != null) {
-      widget = Center(
-          child: Image(
-        image: scan.image!,
-      ));
-    } else if (failure != null) {
-      widget = Center(
-        child: Text(failure.errorMessage),
-      );
-    } else {
-      widget = const Center(
-        child: CircularProgressIndicator(),
-      );
-    }
 
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: Column(children: [
-          widget,
-          Spacer(),
+          const PictureWidget(),
+          const Spacer(),
           SizedBox(
             width: width,
             child: Padding(
