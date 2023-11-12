@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/core/errors/failure.dart';
 import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart';
@@ -17,11 +15,6 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   @override
   void initState() {
-    ScanProvider scanProvider =
-        Provider.of<ScanProvider>(context, listen: false);
-
-    Provider.of<ScanProvider>(context, listen: false).eitherFailureOrScan();
-
     super.initState();
   }
 
@@ -30,6 +23,8 @@ class _ScanScreenState extends State<ScanScreen> {
     ScanEntity? scan = Provider.of<ScanProvider>(context).scan;
     Failure? failure = Provider.of<ScanProvider>(context).failure;
 
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
 
     debugPrint(scan?.image.toString());
     debugPrint(failure.toString());
@@ -53,7 +48,36 @@ class _ScanScreenState extends State<ScanScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: widget,
+        child: Column(children: [
+          widget,
+          Spacer(),
+          SizedBox(
+            width: width,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Provider.of<ScanProvider>(context, listen: false)
+                      .eitherFailureOrScan();
+                },
+                child: const Text('Pick image'),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: width,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Provider.of<ScanProvider>(context, listen: false)
+                      .eitherFailureOrScan();
+                },
+                child: const Text('Analyze'),
+              ),
+            ),
+          ),
+        ]),
       ),
     );
   }
