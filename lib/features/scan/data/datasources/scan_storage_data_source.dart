@@ -1,11 +1,16 @@
+import 'dart:async';
+
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../../business/entities/scan_entity.dart';
 import '../models/scan_model.dart';
 
 abstract class ScanStorageDataSource {
-  Future<ScanModel> getScan({required ImageSource imageSource});
+  Future<Either<Failure, ScanEntity>> getScan({required ImageSource imageSource});
 }
 
 class ScanStorageDataSourceImpl implements ScanStorageDataSource {
@@ -14,7 +19,7 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
   ScanStorageDataSourceImpl({required this.imagePicker});
 
   @override
-  Future<ScanModel> getScan({required ImageSource imageSource}) async {
+  Future<Either<Failure, ScanModel>> getScan({required ImageSource imageSource}) async {
     bool picked = true;
     final image = await imagePicker
         .pickImage(
@@ -24,14 +29,20 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
       picked = false;
 
       throw ServerException();
+    }).catchError((obejct, trace) {
+      picked = false;
     });
+    if (image == null) {
+      picked = false;
+    }
 
     if (picked) {
+      debugPrint(picked.toString());
       debugPrint('image!.path.toString()');
       debugPrint(image!.path.toString());
-      return ScanModel(image: AssetImage(image.path));
+      return Right(ScanModel(image: AssetImage(image.path))) ;
     } else {
-      return ScanModel(image: AssetImage(image!.path));
+      return  Left(CacheFailure(errorMessage: 'Image picking is canceled'));
     }
   }
 }

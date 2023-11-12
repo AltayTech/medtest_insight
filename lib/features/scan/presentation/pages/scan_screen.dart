@@ -27,6 +27,11 @@ class _ScanScreenState extends State<ScanScreen> {
   Widget build(BuildContext context) {
     ScanEntity? scan = Provider.of<ScanProvider>(context).scan;
     Failure? failure = Provider.of<ScanProvider>(context).failure;
+
+
+    debugPrint(scan?.image.toString());
+    debugPrint(failure.toString());
+
     late Widget widget;
     if (scan != null) {
       widget = Center(
