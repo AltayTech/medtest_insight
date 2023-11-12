@@ -5,7 +5,9 @@ import '../entities/scan_entity.dart';
 
 
 abstract class ScanRepository {
-  Future<Either<Failure, ScanEntity>> getScan({
-    required ScanParams scanParams,
-  });
+  Future<Either<Failure, ScanEntity>> getScan(
+  // {
+    // required ScanParams scanParams,
+  // }
+  );
 }
