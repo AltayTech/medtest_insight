@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/core/errors/failure.dart';
 import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart';

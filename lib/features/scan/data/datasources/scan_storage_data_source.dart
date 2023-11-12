@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,7 +41,7 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
       debugPrint(picked.toString());
       debugPrint('image!.path.toString()');
       debugPrint(image!.path.toString());
-      return Right(ScanModel(image: AssetImage(image.path))) ;
+      return Right(ScanModel(image: FileImage(File(image.path)))) ;
     } else {
       return  Left(CacheFailure(errorMessage: 'Image picking is canceled'));
     }
