@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
+import 'package:medtest_insight/features/scan/presentation/widgets/analyse_result_widget.dart';
 import 'package:medtest_insight/features/scan/presentation/widgets/picture_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../locator.dart';
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({Key? key}) : super(key: key);
@@ -27,6 +30,7 @@ class _ScanScreenState extends State<ScanScreen> {
       body: Center(
         child: Column(children: [
           const PictureWidget(),
+          const AnalyseResultWidget(),
           const Spacer(),
           SizedBox(
             width: width,
@@ -48,7 +52,7 @@ class _ScanScreenState extends State<ScanScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   Provider.of<ScanProvider>(context, listen: false)
-                      .eitherFailureOrScan();
+                      .eitherFailureOrAnalyse(locator());
                 },
                 child: const Text('Analyze'),
               ),
