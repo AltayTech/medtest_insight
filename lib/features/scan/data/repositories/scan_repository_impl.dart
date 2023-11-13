@@ -8,10 +8,8 @@ import 'package:medtest_insight/features/scan/data/datasources/scan_storage_data
 import '../../../../../core/connection/network_info.dart';
 import '../../../../../core/errors/exceptions.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/params/params.dart';
 import '../../business/entities/scan_entity.dart';
 import '../../business/repositories/scan_repository.dart';
-import '../../presentation/providers/scan_provider.dart';
 import '../datasources/scan_local_data_source.dart';
 import '../models/scan_model.dart';
 
@@ -47,8 +45,6 @@ class ScanRepositoryImpl implements ScanRepository {
         return storageScan;
 
         // localDataSource.cacheScan(scanToCache: storageScan);
-
-
       } on ServerException {
         return Left(ServerFailure(errorMessage: 'This is a server exception'));
       }
@@ -63,8 +59,9 @@ class ScanRepositoryImpl implements ScanRepository {
   }
 
   @override
-  Future<Either<Failure, AnalyseEntity>> getAnalyse() {
-    // TODO: implement getAnalyse
-    throw UnimplementedError();
+  Future<Either<Failure, AnalyseEntity>> getAnalyse(String text) async{
+    final analyseResult=AnalyseEntity(id: 1,  text: text);
+    return Right(analyseResult);
+
   }
 }

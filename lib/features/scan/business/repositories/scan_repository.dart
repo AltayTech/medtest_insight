@@ -7,5 +7,5 @@ import '../entities/scan_entity.dart';
 abstract class ScanRepository {
   Future<Either<Failure, ScanEntity>> getScan();
 
-  Future<Either<Failure, AnalyseEntity>> getAnalyse();
+  Future<Either<Failure, AnalyseEntity>> getAnalyse(String text);
 }

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart';
 
 import '../../../../../core/errors/failure.dart';
@@ -13,6 +14,13 @@ class GetAnalyseUseCase {
   });
 
   Future<Either<Failure, AnalyseEntity>> call(ScanEntity picture) async {
-    return await scanRepository.getAnalyse();
+    debugPrint('Analyse');
+    debugPrint(picture.image.toString());
+
+
+
+
+
+    return await scanRepository.getAnalyse(picture.image.toString());
   }
 }

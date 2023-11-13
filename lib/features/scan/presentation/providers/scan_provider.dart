@@ -16,6 +16,7 @@ import '../../data/repositories/scan_repository_impl.dart';
 class ScanProvider extends ChangeNotifier {
   ScanEntity? scan;
   Failure? failure;
+  AnalyseEntity? analyseResult;
 
   ScanProvider({
     this.scan,
@@ -61,10 +62,12 @@ class ScanProvider extends ChangeNotifier {
 
     failureOrScan.fold(
       (Failure newFailure) {
+        analyseResult=null;
         failure = newFailure;
         notifyListeners();
       },
       (AnalyseEntity newScan) {
+        analyseResult=newScan;
         failure = null;
         notifyListeners();
       },

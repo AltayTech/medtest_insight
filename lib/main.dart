@@ -6,8 +6,11 @@ import 'package:medtest_insight/features/scan/presentation/providers/scan_provid
 import 'package:provider/provider.dart';
 
 import 'features/home_screen/presentation/pages/home_screen.dart';
+import 'locator.dart';
 
-void main() {
+void main() async {
+  await setup();
+
   runApp(const MyApp());
 }
 
