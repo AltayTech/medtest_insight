@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medtest_insight/features/scan/business/entities/analyse_entity.dart';
 import 'package:medtest_insight/features/scan/data/datasources/scan_storage_data_source.dart';
 
 import '../../../../../core/connection/network_info.dart';
@@ -59,5 +60,11 @@ class ScanRepositoryImpl implements ScanRepository {
         return Left(CacheFailure(errorMessage: 'This is a cache exception'));
       }
     }
+  }
+
+  @override
+  Future<Either<Failure, AnalyseEntity>> getAnalyse() {
+    // TODO: implement getAnalyse
+    throw UnimplementedError();
   }
 }
