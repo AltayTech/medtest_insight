@@ -1,17 +1,19 @@
 import 'package:get_it/get_it.dart';
 import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'features/scan/data/datasources/scan_local_data_source.dart';
 
 GetIt locator = GetIt.instance;
 
 setup() async {
   /// Providers
   locator.registerSingleton<ScanProvider>(ScanProvider());
-  // locator.registerSingleton<ScanStorageDataSourceImpl>(ScanStorageDataSourceImpl(imagePicker: null));
+  final sharedPreference = await SharedPreferences.getInstance();
+  locator.registerSingleton<ScanLocalDataSourceImpl>(
+      ScanLocalDataSourceImpl(sharedPreferences: sharedPreference));
 
-  // locator.registerSingleton<ScanRepositoryImpl>(ScanRepositoryImpl(storageDataSource: ImageSource()));
-  // locator.registerSingleton<ScanProvider>(ScanProvider());
-  // locator.registerSingleton<ScanProvider>(ScanProvider());
 
   /// Repositories
-  // locator.registerSingleton(ScanRepositoryImpl(storageDataSource: storageDataSource, localDataSource: localDataSource, networkInfo: networkInfo))
+
 }
