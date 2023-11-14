@@ -39,8 +39,3 @@ This project requires Flutter SDK to be installed.
 Pull requests are welcome. Please open an issue first to discuss changes.
 
 
-
-
-# Technical 
-
-- Clean Architecture
