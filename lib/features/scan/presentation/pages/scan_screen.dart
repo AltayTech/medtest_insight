@@ -20,6 +20,8 @@ class _ScanScreenState extends State<ScanScreen> {
     super.initState();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;

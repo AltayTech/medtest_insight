@@ -41,7 +41,7 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
       debugPrint(picked.toString());
       debugPrint('image!.path.toString()');
       debugPrint(image!.path.toString());
-      return Right(ScanModel(image: FileImage(File(image.path)))) ;
+      return Right(ScanModel(image: FileImage(File(image.path)), imageSource: image)) ;
     } else {
       return  Left(CacheFailure(errorMessage: 'Image picking is canceled'));
     }
