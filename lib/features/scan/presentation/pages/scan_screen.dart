@@ -29,10 +29,19 @@ class _ScanScreenState extends State<ScanScreen> {
       appBar: AppBar(),
       body: Center(
         child: Column(children: [
-          const PictureWidget(),
-          const AnalyseResultWidget(),
-          const Spacer(),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  PictureWidget(),
+                  AnalyseResultWidget(),
+                ],
+              ),
+            ),
+          ),
           SizedBox(
+            height: height * 0.07,
             width: width,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -46,6 +55,7 @@ class _ScanScreenState extends State<ScanScreen> {
             ),
           ),
           SizedBox(
+            height: height * 0.07,
             width: width,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
