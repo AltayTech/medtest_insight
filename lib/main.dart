@@ -9,6 +9,7 @@ import 'features/home_screen/presentation/pages/home_screen.dart';
 import 'locator.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await setup();
 
   runApp(const MyApp());
