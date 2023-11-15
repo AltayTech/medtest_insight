@@ -17,6 +17,7 @@ class _PictureWidgetState extends State<PictureWidget> {
   Widget build(BuildContext context) {
     ScanEntity? scan = Provider.of<ScanProvider>(context).scan;
     Failure? failure = Provider.of<ScanProvider>(context).failure;
+    debugPrint('scan====');
     debugPrint(scan?.image.toString());
     debugPrint(failure.toString());
 
@@ -31,7 +32,7 @@ class _PictureWidgetState extends State<PictureWidget> {
       );
     } else {
       return const Center(
-        child: CircularProgressIndicator(),
+        child: Text('Please upload the image'),
       );
     }
   }

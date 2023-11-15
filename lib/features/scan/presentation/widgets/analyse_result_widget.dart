@@ -32,7 +32,7 @@ class _AnalyseResultWidgetState extends State<AnalyseResultWidget> {
       );
     } else {
       return const Center(
-        child: CircularProgressIndicator(),
+        child: Text('No Analyses result yet'),
       );
     }
   }
