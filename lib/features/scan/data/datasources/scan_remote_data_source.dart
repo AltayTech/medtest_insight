@@ -20,14 +20,13 @@ class ScanRemoteDataSource {
     String prompt =
         'This is medical test. You are a medical expert. analyse this data and give recommendation'
         ' $analyseResult';
-    debugPrint(prompt.toString());
+    debugPrint(apiKey);
 
     final response = await dio.post(
       apiUrl,
       data:{
         'model': 'text-davinci-003',
         'prompt': 'What is the capital of France?',
-        'temperature': 0,
         'max_tokens': 100
         // "prompt": prompt,
         // "max_tokens": 250,

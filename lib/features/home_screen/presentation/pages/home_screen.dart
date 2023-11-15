@@ -15,11 +15,39 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         /// Add bottom to navigate to scan screen
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(ScanScreen.routeName);
-          },
-          child: Text('Scan Test result'),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue[50],
+                  // border: Border.all(color: Colors.black26),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Text('Welcome to Medical test analyzer',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 24)),
+                      Text(
+                        'Upload image of medical test result and we analyze it for you',
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(ScanScreen.routeName);
+              },
+              child: const Text('Start Analyse'),
+            ),
+          ],
         ),
       ),
     );
