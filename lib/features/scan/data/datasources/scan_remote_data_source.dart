@@ -1,30 +1,49 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:medtest_insight/features/scan/data/models/recommendation_model.dart';
 
 import '../../../../../core/errors/exceptions.dart';
 
 class ScanRemoteDataSource {
   final Dio dio = Dio();
-  String apiKey = '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';
-  final String apiUrl =
-      'https://api.openai.com/v1/engines/davinci-codex/completions';
+  String? apiKey = dotenv.env['TOKEN'];
+
+  final String apiUrl = 'https://api.openai.com/v1/completions';
+
+  // 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
   Future<RecommendationModel> getRecommendation(
       {required String analyseResult}) async {
     String prompt =
         'This is medical test. You are a medical expert. analyse this data and give recommendation'
         ' $analyseResult';
-    final response = await dio.get(
+    debugPrint(prompt.toString());
+
+    final response = await dio.post(
       apiUrl,
-      data: jsonEncode({'prompt': prompt, 'max_tokens': 150}),
-      queryParameters: {
-        'api_key': apiKey,
+      data:{
+        'model': 'text-davinci-003',
+        'prompt': 'What is the capital of France?',
+        'temperature': 0,
+        'max_tokens': 100
+        // "prompt": prompt,
+        // "max_tokens": 250,
+        // 'model':"gpt-3.5-turbo-instruct",
+        // "model": "gpt-3.5-turbo-instruct",
+        // "prompt": "Say this is a test",
+        // "max_tokens": 7,
+        // "temperature": 0
+
+      },
+      options: Options(headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $apiKey',
-      },
+      }),
     );
+    debugPrint(response.toString());
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.data);
