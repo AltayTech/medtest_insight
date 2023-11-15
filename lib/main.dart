@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:medtest_insight/core/widgets/main_wrapper.dart';
-import 'package:medtest_insight/features/home_screen/presentation/providers/home_screen_provider.dart';
 import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
 import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
 import 'package:provider/provider.dart';
@@ -24,9 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => HomeScreenProvider(),
-        ),
+
         ChangeNotifierProvider(
           create: (context) => ScanProvider(),
         ),
