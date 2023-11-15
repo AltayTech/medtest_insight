@@ -15,6 +15,8 @@ class MainWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> pageViewWidget = [
       const HomeScreen(),
+      const HomeScreen(),
+      const HomeScreen(),
     ];
     // var height = MediaQuery.of(context).size.height;
     return SafeArea(
