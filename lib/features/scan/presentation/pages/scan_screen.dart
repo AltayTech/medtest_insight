@@ -68,6 +68,20 @@ class _ScanScreenState extends State<ScanScreen> {
               ),
             ),
           ),
+          SizedBox(
+            height: height * 0.07,
+            width: width,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Provider.of<ScanProvider>(context, listen: false)
+                      .eitherFailureOrRecommendation(locator());
+                },
+                child: const Text('Recommend'),
+              ),
+            ),
+          ),
         ]),
       ),
     );

@@ -26,15 +26,18 @@ class GetAnalyseUseCase {
       RecognizedText recognizedText = await textDetector
           .processImage(InputImage.fromFilePath(picture.imageSource.path));
       await textDetector.close();
+      debugPrint(recognizedText.blocks.length.toString());
       for (TextBlock block in recognizedText.blocks) {
-        for (TextLine textLine in block.lines) {
-          text = '$text${textLine.text}\n';
-        }
+        text = '$text${block.text}\n';
+        debugPrint(text);
+        // for (TextLine textLine in block.lines) {
+        //   text = '$text${textLine.text}';
+        // }
       }
       return text;
     }
 
-    String analyseResult= await getText(picture);
+    String analyseResult = await getText(picture);
 
     return await scanRepository.getAnalyse(analyseResult);
   }

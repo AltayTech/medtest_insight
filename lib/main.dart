@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:medtest_insight/core/widgets/main_wrapper.dart';
 import 'package:medtest_insight/features/home_screen/presentation/providers/home_screen_provider.dart';
 import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
@@ -10,6 +11,7 @@ import 'locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await setup();
 
   runApp(const MyApp());
