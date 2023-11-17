@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:medtest_insight/features/scan/data/models/recommendation_model.dart';
 
 import '../../../../../core/errors/exceptions.dart';
+import '../../../../core/constants/constants.dart';
 
 class ScanRemoteDataSource {
   final Dio dio = Dio();
@@ -18,8 +19,7 @@ class ScanRemoteDataSource {
   Future<RecommendationModel> getRecommendation(
       {required String analyseResult}) async {
     String prompt =
-        'This is medical test. You are a medical expert. analyse this data and give recommendation'
-        ' $analyseResult';
+        '$CPrompt $analyseResult';
     debugPrint(apiKey);
 
     final response = await dio.post(
