@@ -26,8 +26,8 @@ class ScanRemoteDataSource {
       apiUrl,
       data:{
         'model': 'text-davinci-003',
-        'prompt': 'What is the capital of France?',
-        'max_tokens': 100
+        'prompt': prompt,
+        'max_tokens': 1000
         // "prompt": prompt,
         // "max_tokens": 250,
         // 'model':"gpt-3.5-turbo-instruct",
@@ -45,7 +45,7 @@ class ScanRemoteDataSource {
     debugPrint(response.toString());
 
     if (response.statusCode == 200) {
-      final Map<String, dynamic> data = jsonDecode(response.data);
+      final Map<String, dynamic> data = response.data;
       final results = data['choices'][0]['text'];
       return RecommendationModel(id: 0, result: results);
     } else {

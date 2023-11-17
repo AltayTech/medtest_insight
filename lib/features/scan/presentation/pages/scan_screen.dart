@@ -43,6 +43,7 @@ class _ScanScreenState extends State<ScanScreen> {
                     padding: EdgeInsets.all(18.0),
                     child: AnalyseResultWidget(),
                   ),
+
                 ],
               ),
             ),
