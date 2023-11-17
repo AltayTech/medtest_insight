@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:medtest_insight/features/scan/data/models/recommendation_model.dart';
 
 import '../../../../../core/errors/exceptions.dart';
+import '../../../../core/constants/constants.dart';
 
 class ScanRemoteDataSource {
   final Dio dio = Dio();
@@ -18,16 +19,15 @@ class ScanRemoteDataSource {
   Future<RecommendationModel> getRecommendation(
       {required String analyseResult}) async {
     String prompt =
-        'This is medical test. You are a medical expert. analyse this data and give recommendation'
-        ' $analyseResult';
+        '$CPrompt $analyseResult';
     debugPrint(apiKey);
 
     final response = await dio.post(
       apiUrl,
       data:{
         'model': 'text-davinci-003',
-        'prompt': 'What is the capital of France?',
-        'max_tokens': 100
+        'prompt': prompt,
+        'max_tokens': 1000
         // "prompt": prompt,
         // "max_tokens": 250,
         // 'model':"gpt-3.5-turbo-instruct",
@@ -45,7 +45,7 @@ class ScanRemoteDataSource {
     debugPrint(response.toString());
 
     if (response.statusCode == 200) {
-      final Map<String, dynamic> data = jsonDecode(response.data);
+      final Map<String, dynamic> data = response.data;
       final results = data['choices'][0]['text'];
       return RecommendationModel(id: 0, result: results);
     } else {
