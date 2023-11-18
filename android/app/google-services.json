@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345503533505",
+    "project_id": "medtest-e1117",
+    "storage_bucket": "medtest-e1117.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345503533505:android:2a24c8a34a380828f9c740",
+        "android_client_info": {
+          "package_name": "com.example.medtest_insight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCegBtELwOQh9WjmhXTPtgONYp7HRF2ujw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
