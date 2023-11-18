@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -43,9 +44,9 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAaznQqCUufVlybaZ80EOEsu92zTSJh4sg',
-    appId: '1:345503533505:web:cbd28564bc800381f9c740',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['APIKEYWEB']!,
+    appId: dotenv.env['APIIDWEB']!,
     messagingSenderId: '345503533505',
     projectId: 'medtest-e1117',
     authDomain: 'medtest-e1117.firebaseapp.com',
@@ -53,26 +54,26 @@ class DefaultFirebaseOptions {
     measurementId: 'G-WZ5FBS06S8',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCegBtELwOQh9WjmhXTPtgONYp7HRF2ujw',
-    appId: '1:345503533505:android:2a24c8a34a380828f9c740',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['APIKEYANDROID']!,
+    appId: dotenv.env['APIIDANDROID']!,
     messagingSenderId: '345503533505',
     projectId: 'medtest-e1117',
     storageBucket: 'medtest-e1117.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCh_MVmqc1OgPnHwYuOn11NuvGMX7fV0gg',
-    appId: '1:345503533505:ios:aece9d753d944729f9c740',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['APIKEYIOS']!,
+    appId: dotenv.env['APIIDIOS']!,
     messagingSenderId: '345503533505',
     projectId: 'medtest-e1117',
     storageBucket: 'medtest-e1117.appspot.com',
     iosBundleId: 'com.example.medtestInsight',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCh_MVmqc1OgPnHwYuOn11NuvGMX7fV0gg',
-    appId: '1:345503533505:ios:c78a4c0c5817dd6bf9c740',
+  static FirebaseOptions macos = FirebaseOptions(
+    apiKey: dotenv.env['APIKEYMAC']!,
+    appId: dotenv.env['APIIDMAC']!,
     messagingSenderId: '345503533505',
     projectId: 'medtest-e1117',
     storageBucket: 'medtest-e1117.appspot.com',
