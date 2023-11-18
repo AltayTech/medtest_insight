@@ -3,11 +3,11 @@ import 'package:medtest_insight/features/athentication_feature/business/entities
 
 import '../../../../../core/errors/failure.dart';
 
-class ScanProvider extends ChangeNotifier {
+class AuthProvider extends ChangeNotifier {
   UserEntity? userEntity;
   Failure? failure;
 
-  ScanProvider({
+  AuthProvider({
     this.userEntity,
     this.failure,
   });

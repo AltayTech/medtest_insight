@@ -4,6 +4,7 @@ import 'package:medtest_insight/features/home_screen/presentation/pages/home_scr
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
+  static const routeName = '/autPage';
 
   @override
   Widget build(BuildContext context) {
