@@ -34,15 +34,77 @@ class _ScanScreenState extends State<ScanScreen> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      // color: Colors.lightBlue[50],
+                      // border: Border.all(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Image of test',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 24)),
+                    ),
+                  ),
                   SizedBox(
                     width: width,
                     height: 0.3 * height,
-                    child: const PictureWidget(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.lightBlue[50],
+                              // border: Border.all(color: Colors.black26),
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(color: Colors.black45)),
+                          child: const PictureWidget()),
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(18.0),
-                    child: AnalyseResultWidget(),
+                  SizedBox(
+                    width: width,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        // color: Colors.lightBlue[50],
+                        // border: Border.all(color: Colors.black26),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Extracted info:',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(fontSize: 24)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: width,
+                    height: 0.3 * height,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.lightBlue[50],
+                              // border: Border.all(color: Colors.black26),
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(color: Colors.black45)),
+                          child: SingleChildScrollView(child: AnalyseResultWidget())),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      // color: Colors.lightBlue[50],
+                      // border: Border.all(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Final Result:',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 24)),
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(18.0),
