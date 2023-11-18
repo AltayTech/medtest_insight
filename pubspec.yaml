@@ -47,6 +47,7 @@ dependencies:
 #  google_ml_vision: ^0.0.8
   flutter_dotenv: ^5.1.0
   firebase_core: ^2.22.0
+  firebase_auth: ^4.14.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
