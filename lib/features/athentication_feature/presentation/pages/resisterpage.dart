@@ -90,7 +90,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 hintText: 'Confirm Password',
                 obscureText: true,
               ),
-
               const SizedBox(height: 25),
               MyButton(
                 text: "Sign Up",
@@ -110,9 +109,9 @@ class _RegisterPageState extends State<RegisterPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  SquareTile(imagePath: 'lib/images/google.png'),
+                  SquareTile(imagePath: 'assets/images/google.png'),
                   SizedBox(width: 25),
-                  SquareTile(imagePath: 'lib/images/apple.png'),
+                  SquareTile(imagePath: 'assets/images/apple.png'),
                 ],
               ),
               const SizedBox(height: 50),

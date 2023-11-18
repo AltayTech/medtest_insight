@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medtest_insight/features/athentication_feature/presentation/pages/auth_page.dart';
 
 class DrawerMenu extends StatefulWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -25,12 +26,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 'Weathry app'),
           ),
 
-          // ListTile(
-          //   title: const Text('Home page'),
-          //   onTap: () {
-          //     Navigator.of(context).pushNamed(MainWrapper.routeName);
-          //   },
-          // ),
+          ListTile(
+            title: const Text('Login'),
+            onTap: () {
+              Navigator.of(context).pushNamed(AuthPage.routeName);
+            },
+          ),
           ListTile(
             title: const Text('Guide'),
             onTap: () {

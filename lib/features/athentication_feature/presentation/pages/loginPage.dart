@@ -109,9 +109,9 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  SquareTile(imagePath: 'lib/images/google.png'),
+                  SquareTile(imagePath: 'assets/images/google.png'),
                   SizedBox(width: 25),
-                  SquareTile(imagePath: 'lib/images/apple.png'),
+                  SquareTile(imagePath: 'assets/images/apple.png'),
                 ],
               ),
               const SizedBox(height: 50),

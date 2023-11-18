@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:medtest_insight/features/athentication_feature/presentation/widgets/loginOrRegister.dart';
 import 'package:medtest_insight/features/home_screen/presentation/pages/home_screen.dart';
 
 class AuthPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class AuthPage extends StatelessWidget {
           if (snapshot.hasData) {
             return HomeScreen();
           } else {
-            return HomeScreen();
+            return LoginOrRegister();
           }
         },
       ),
