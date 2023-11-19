@@ -2,7 +2,7 @@
 // ignore_for_file: lines_longer_than_80_chars, avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
-    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+    show TargetPlatform, debugPrint, defaultTargetPlatform, kIsWeb;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
@@ -22,6 +22,8 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
+
+
         return android;
       case TargetPlatform.iOS:
         return ios;
@@ -44,8 +46,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-
-
   static FirebaseOptions web = FirebaseOptions(
     apiKey: dotenv.env['APIKEYWEB']!,
     appId: dotenv.env['APIIDWEB']!,
@@ -56,7 +56,7 @@ class DefaultFirebaseOptions {
     measurementId: 'G-WZ5FBS06S8',
   );
 
-  static FirebaseOptions android = FirebaseOptions(
+  static  FirebaseOptions android = FirebaseOptions(
     apiKey: dotenv.env['APIKEYANDROID']!,
     appId: dotenv.env['APIIDANDROID']!,
     messagingSenderId: '345503533505',
