@@ -14,7 +14,10 @@ import 'locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await dotenv.load(fileName: ".env");
+  await dotenv.load();
+
   await setup();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
