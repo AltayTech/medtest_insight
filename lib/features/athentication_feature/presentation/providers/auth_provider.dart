@@ -11,15 +11,15 @@ import '../../data/datasources/user_remote_data_source.dart';
 import '../../data/repositories/auth_repository_impl.dart';
 
 class AuthProvider extends ChangeNotifier {
-  UserEntity? userEntity;
+  UserEntity? user;
   Failure? failure;
 
   AuthProvider({
-    this.userEntity,
+    this.user,
     this.failure,
   });
 
-  void eitherFailureOrRegister() async {
+  void eitherFailureOrRegister(String email, String password) async {
     AuthRepositoryImpl repository = AuthRepositoryImpl(
       localDataSource: UserLocalDataSourceImpl(
         sharedPreferences: await SharedPreferences.getInstance(),
@@ -31,25 +31,21 @@ class AuthProvider extends ChangeNotifier {
     );
 
     final failureOrRegister =
-        await GetRegisterUseCase(authRepository: repository).call(
-            // scanParams: ScanParams(
-            //   id: repository.storageDataSource.,
-            //   image: scan!.image,
-            // ),
-            );
+        await GetRegisterUseCase(authRepository: repository)
+            .call(email, password);
 
-    // failureOrScan.fold(
-    //   (Failure newFailure) {
-    //     scan = null;
-    //     failure = newFailure;
-    //     notifyListeners();
-    //   },
-    //   (ScanEntity newScan) {
-    //     scan = newScan;
-    //     failure = null;
-    //     notifyListeners();
-    //   },
-    // );
+    failureOrRegister.fold(
+      (Failure newFailure) {
+        user = null;
+        failure = newFailure;
+        notifyListeners();
+      },
+      (UserEntity newUser) {
+        user = newUser;
+        failure = null;
+        notifyListeners();
+      },
+    );
   }
 
 // void eitherFailureOrAnalyse(GetAnalyseUseCase getAnalyseUseCase) async {

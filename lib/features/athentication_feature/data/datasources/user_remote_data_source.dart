@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
 import 'package:medtest_insight/features/athentication_feature/data/models/user_model.dart';
 
 import '../../../../../core/errors/exceptions.dart';
-import '../../../../core/constants/constants.dart';
 
 class UserRemoteDataSource {
   final Dio dio = Dio();
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   String? apiKey = dotenv.env['TOKEN'];
 
@@ -15,36 +17,26 @@ class UserRemoteDataSource {
 
   // 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
-  Future<UserModel> getRecommendation({required String analyseResult}) async {
-    String prompt = '$CPrompt $analyseResult';
+  Future<UserModel> getRegister(
+      {required UserEntity userRegister}) async {
     debugPrint(apiKey);
 
-    final response = await dio.post(
-      apiUrl,
-      data: {
-        'model': 'text-davinci-003',
-        'prompt': prompt,
-        'max_tokens': 1000
-        // "prompt": prompt,
-        // "max_tokens": 250,
-        // 'model':"gpt-3.5-turbo-instruct",
-        // "model": "gpt-3.5-turbo-instruct",
-        // "prompt": "Say this is a test",
-        // "max_tokens": 7,
-        // "temperature": 0
-      },
-      options: Options(headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $apiKey',
-      }),
-    );
-    debugPrint(response.toString());
-
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = response.data;
-      final results = data['choices'][0]['text'];
-      return UserModel(id: 0, text: results);
-    } else {
+    try {
+      UserCredential userCredintial = await auth.createUserWithEmailAndPassword(
+        email: userRegister.email,
+        password: userRegister.password,
+      );
+      return UserModel(
+          email: userRegister.email, password: userRegister.password);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+      throw ServerException();
+    } catch (e) {
+      print(e);
       throw ServerException();
     }
   }

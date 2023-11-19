@@ -11,7 +11,11 @@ class GetRegisterUseCase {
     required this.authRepository,
   });
 
-  Future<Either<Failure, UserEntity>> call() async {
-    return await authRepository.getRegister();
+  Future<Either<Failure, UserEntity>> call(
+      String email, String password) async {
+    UserEntity userRegister =
+        UserEntity(id: 0, email: email, password: password);
+
+    return await authRepository.getRegister(userRegister);
   }
 }

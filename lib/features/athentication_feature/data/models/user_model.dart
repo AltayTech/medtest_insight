@@ -3,23 +3,27 @@ import 'package:medtest_insight/features/athentication_feature/business/entities
 class UserModel extends UserEntity {
   const UserModel({
     int id = 0,
-    String text = '',
+    String email = '',
+    String password = '',
   }) : super(
           id: id,
-          text: text,
+          email: email,
+    password: password,
         );
 
   factory UserModel.fromJson({required Map<String, dynamic> json}) {
     return UserModel(
       id: json['id'],
-      text: json['result'],
+      email: json['email'],
+      password: json['password'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'result': text,
+      'email': email,
+      'password': password,
     };
   }
 }
