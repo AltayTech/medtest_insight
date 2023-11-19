@@ -10,16 +10,16 @@ import '../../data/datasources/user_local_data_source.dart';
 import '../../data/datasources/user_remote_data_source.dart';
 import '../../data/repositories/auth_repository_impl.dart';
 
-class AuthProvider extends ChangeNotifier {
+class AuthenticationProvider extends ChangeNotifier {
   UserEntity? user;
   Failure? failure;
 
-  AuthProvider({
+  AuthenticationProvider({
     this.user,
     this.failure,
   });
 
-  void eitherFailureOrRegister(String email, String password) async {
+  Future<void> eitherFailureOrRegister(String email, String password) async {
     AuthRepositoryImpl repository = AuthRepositoryImpl(
       localDataSource: UserLocalDataSourceImpl(
         sharedPreferences: await SharedPreferences.getInstance(),

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/authentication_provider.dart';
 import '../widgets/my_button.dart';
 import '../widgets/my_textfield.dart';
 import '../widgets/square_tile.dart';
@@ -41,8 +43,11 @@ class _RegisterPageState extends State<RegisterPage> {
         });
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text, password: _passwordController.text);
+      final registerResult =
+          await Provider.of<AuthenticationProvider>(context, listen: false)
+              .eitherFailureOrRegister(
+                  _emailController.text, _passwordController.text);
+
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -106,9 +111,9 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 50),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   SquareTile(imagePath: 'assets/images/google.png'),
                   SizedBox(width: 25),
                   SquareTile(imagePath: 'assets/images/apple.png'),

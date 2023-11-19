@@ -2,7 +2,7 @@ import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medtest_insight/core/connection/network_info.dart';
-import 'package:medtest_insight/features/athentication_feature/presentation/providers/auth_provider.dart';
+import 'package:medtest_insight/features/athentication_feature/presentation/providers/authentication_provider.dart';
 import 'package:medtest_insight/features/scan/business/usecases/get_analyse_usecase.dart';
 import 'package:medtest_insight/features/scan/business/usecases/get_recommendation_usecase.dart';
 import 'package:medtest_insight/features/scan/data/datasources/scan_remote_data_source.dart';
@@ -64,5 +64,5 @@ setup() async {
 
   /// statemanagement
   locator.registerSingleton<ScanProvider>(ScanProvider());
-  locator.registerSingleton<AuthProvider>(AuthProvider());
+  locator.registerSingleton<AuthenticationProvider>(AuthenticationProvider());
 }
