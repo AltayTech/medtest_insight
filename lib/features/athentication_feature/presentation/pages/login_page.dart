@@ -7,6 +7,8 @@ import '../widgets/square_tile.dart';
 
 
 class LoginPage extends StatefulWidget {
+  static const routeName = '/LoginPage';
+
   final Function()? onTap;
 
   LoginPage({super.key,required this.onTap});

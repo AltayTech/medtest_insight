@@ -21,7 +21,7 @@ class AuthenticationProvider extends ChangeNotifier {
 
   Future<void> eitherFailureOrRegister(String email, String password) async {
     AuthRepositoryImpl repository = AuthRepositoryImpl(
-      localDataSource: UserLocalDataSourceImpl(
+      UserlocalDataSource: UserLocalDataSourceImpl(
         sharedPreferences: await SharedPreferences.getInstance(),
       ),
       networkInfo: NetworkInfoImpl(

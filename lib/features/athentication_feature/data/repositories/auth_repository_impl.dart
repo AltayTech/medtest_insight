@@ -12,12 +12,12 @@ import '../datasources/user_local_data_source.dart';
 import '../datasources/user_remote_data_source.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  final UserLocalDataSource localDataSource;
+  final UserLocalDataSource UserlocalDataSource;
   final NetworkInfo networkInfo;
   final UserRemoteDataSource userRemoteDataSource;
 
   AuthRepositoryImpl({
-    required this.localDataSource,
+    required this.UserlocalDataSource,
     required this.networkInfo,
     required this.userRemoteDataSource,
   });

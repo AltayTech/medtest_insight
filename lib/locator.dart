@@ -24,6 +24,7 @@ GetIt locator = GetIt.instance;
 
 setup() async {
   final sharedPreference = await SharedPreferences.getInstance();
+
   locator.registerSingleton<ScanLocalDataSource>(
       ScanLocalDataSourceImpl(sharedPreferences: sharedPreference));
 
@@ -46,7 +47,7 @@ setup() async {
   ));
 
   locator.registerSingleton<AuthRepository>(AuthRepositoryImpl(
-    localDataSource: locator(),
+    UserlocalDataSource: locator(),
     networkInfo: networkInfo,
     userRemoteDataSource: locator(),
   ));
