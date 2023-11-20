@@ -13,3 +13,9 @@ class ScanParams {
     required this.image,
   });
 }
+
+class LogoutParam {
+  final String? situation;
+
+  LogoutParam({required this.situation});
+}

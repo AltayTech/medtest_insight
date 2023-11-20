@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
+import 'package:medtest_insight/core/params/params.dart';
 import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
 import 'package:medtest_insight/features/athentication_feature/data/models/user_model.dart';
 
@@ -40,6 +41,23 @@ class AuthRepositoryImpl implements AuthRepository {
         //
         // );
         return Right(register);
+
+        // localDataSource.cacheScan(scanToCache: storageScan);
+      } on ServerException {
+        return Left(ServerFailure(errorMessage: 'This is a server exception'));
+      }
+    } else {
+      return Left(CacheFailure(errorMessage: 'This is a cache exception'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, LogoutParam>> logout() async {
+    if (await networkInfo.isConnected!) {
+      try {
+        LogoutParam logoutParam = await userRemoteDataSource.logout();
+
+        return Right(logoutParam);
 
         // localDataSource.cacheScan(scanToCache: storageScan);
       } on ServerException {
