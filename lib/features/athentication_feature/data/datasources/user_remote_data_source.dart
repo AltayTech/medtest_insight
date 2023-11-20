@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:medtest_insight/core/params/params.dart';
 import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
 import 'package:medtest_insight/features/athentication_feature/data/models/user_model.dart';
 
@@ -17,10 +18,7 @@ class UserRemoteDataSource {
 
   // 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
-  Future<UserModel> getRegister(
-      {required UserEntity userRegister}) async {
-    debugPrint(apiKey);
-
+  Future<UserModel> getRegister({required UserEntity userRegister}) async {
     try {
       UserCredential userCredintial = await auth.createUserWithEmailAndPassword(
         email: userRegister.email,
@@ -30,13 +28,27 @@ class UserRemoteDataSource {
           email: userRegister.email, password: userRegister.password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+       debugPrint('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        debugPrint('The account already exists for that email.');
       }
       throw ServerException();
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
+      throw ServerException();
+    }
+  }
+
+  Future<LogoutParam> logout() async {
+    try {
+      await auth.signOut();
+
+      return LogoutParam(situation: 'done');
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.message);
+      throw ServerException();
+    } catch (e) {
+      debugPrint(e.toString());
       throw ServerException();
     }
   }

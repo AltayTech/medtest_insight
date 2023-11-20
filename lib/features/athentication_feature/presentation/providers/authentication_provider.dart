@@ -1,6 +1,8 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter/material.dart';
+import 'package:medtest_insight/core/params/params.dart';
 import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
+import 'package:medtest_insight/features/athentication_feature/business/usecases/get_logout_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../core/errors/failure.dart';
@@ -12,6 +14,7 @@ import '../../data/repositories/auth_repository_impl.dart';
 
 class AuthenticationProvider extends ChangeNotifier {
   UserEntity? user;
+  LogoutParam? loginSituation;
   Failure? failure;
 
   AuthenticationProvider({
@@ -48,38 +51,31 @@ class AuthenticationProvider extends ChangeNotifier {
     );
   }
 
-// void eitherFailureOrAnalyse(GetAnalyseUseCase getAnalyseUseCase) async {
-//   final failureOrScan = await getAnalyseUseCase.call(scan!);
-//
-//   failureOrScan.fold(
-//     (Failure newFailure) {
-//       analyseResult = null;
-//       failure = newFailure;
-//       notifyListeners();
-//     },
-//     (AnalyseEntity newScan) {
-//       analyseResult = newScan;
-//       failure = null;
-//       notifyListeners();
-//     },
-//   );
-// }
+  Future<void> eitherFailureOrLogout() async {
+    AuthRepositoryImpl repository = AuthRepositoryImpl(
+      UserlocalDataSource: UserLocalDataSourceImpl(
+        sharedPreferences: await SharedPreferences.getInstance(),
+      ),
+      networkInfo: NetworkInfoImpl(
+        DataConnectionChecker(),
+      ),
+      userRemoteDataSource: UserRemoteDataSource(),
+    );
 
-// void eitherFailureOrRecommendation(
-//     GetRecommendationUseCase getRecommendationUseCase) async {
-//   final failureOrScan = await getRecommendationUseCase.call(analyseResult!);
-//
-//   failureOrScan.fold(
-//     (Failure newFailure) {
-//       analyseResult = null;
-//       failure = newFailure;
-//       notifyListeners();
-//     },
-//     (RecommendationEntity newScan) {
-//       recommendationEntity = newScan;
-//       failure = null;
-//       notifyListeners();
-//     },
-//   );
-// }
+    final failureOrLogout =
+        await GetLogoutUseCase(authRepository: repository).call();
+
+    failureOrLogout.fold(
+      (Failure newFailure) {
+        user = null;
+        failure = newFailure;
+        notifyListeners();
+      },
+      (LogoutParam newUser) {
+        loginSituation = newUser;
+        failure = null;
+        notifyListeners();
+      },
+    );
+  }
 }

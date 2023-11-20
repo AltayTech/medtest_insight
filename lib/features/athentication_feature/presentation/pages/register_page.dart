@@ -45,11 +45,11 @@ class _RegisterPageState extends State<RegisterPage> {
         });
 
     try {
-      final registerResult =
-          await Provider.of<AuthenticationProvider>(context, listen: false)
-              .eitherFailureOrRegister(
-                  _emailController.text, _passwordController.text);
+      await Provider.of<AuthenticationProvider>(context, listen: false)
+          .eitherFailureOrRegister(
+              _emailController.text, _passwordController.text);
 
+      Navigator.pop(context);
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);

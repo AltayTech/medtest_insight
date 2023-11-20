@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/features/athentication_feature/presentation/pages/auth_page.dart';
+import 'package:provider/provider.dart';
+
+import '../../features/athentication_feature/presentation/providers/authentication_provider.dart';
 
 class DrawerMenu extends StatefulWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -25,7 +28,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
             child: Text(''
                 'Weathry app'),
           ),
-
           ListTile(
             title: const Text('Login'),
             onTap: () {
@@ -36,6 +38,18 @@ class _DrawerMenuState extends State<DrawerMenu> {
             title: const Text('Guide'),
             onTap: () {
               // Navigator.of(context).popAndPushNamed(HelpScreen.routeName);
+            },
+          ),
+          ListTile(
+            title: const Text('Log out'),
+            onTap: () async {
+              await Provider.of<AuthenticationProvider>(context, listen: false)
+                  .eitherFailureOrLogout();
+              debugPrint(
+                  Provider.of<AuthenticationProvider>(context, listen: false)
+                      .loginSituation
+                      ?.situation);
+              Navigator.of(context).pop();
             },
           ),
         ],
