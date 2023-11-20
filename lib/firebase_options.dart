@@ -22,8 +22,6 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-
-
         return android;
       case TargetPlatform.iOS:
         return ios;
@@ -56,7 +54,7 @@ class DefaultFirebaseOptions {
     measurementId: 'G-WZ5FBS06S8',
   );
 
-  static  FirebaseOptions android = FirebaseOptions(
+  static FirebaseOptions android = FirebaseOptions(
     apiKey: dotenv.env['APIKEYANDROID']!,
     appId: dotenv.env['APIIDANDROID']!,
     messagingSenderId: '345503533505',

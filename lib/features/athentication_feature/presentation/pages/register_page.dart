@@ -8,6 +8,8 @@ import '../widgets/my_textfield.dart';
 import '../widgets/square_tile.dart';
 
 class RegisterPage extends StatefulWidget {
+  static const routeName = '/RegisterPage';
+
   final Function()? onTap;
 
   RegisterPage({Key? key, required this.onTap}) : super(key: key);
