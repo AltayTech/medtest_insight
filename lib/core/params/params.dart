@@ -14,8 +14,8 @@ class ScanParams {
   });
 }
 
-class LogoutParam {
+class AuthParam {
   final String? situation;
 
-  LogoutParam({required this.situation});
+  AuthParam({required this.situation});
 }

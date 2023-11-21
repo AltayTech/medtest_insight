@@ -2,6 +2,7 @@ import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:medtest_insight/core/params/params.dart';
 import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
+import 'package:medtest_insight/features/athentication_feature/business/usecases/get_login_usecase.dart';
 import 'package:medtest_insight/features/athentication_feature/business/usecases/get_logout_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,7 +15,7 @@ import '../../data/repositories/auth_repository_impl.dart';
 
 class AuthenticationProvider extends ChangeNotifier {
   UserEntity? user;
-  LogoutParam? loginSituation;
+  AuthParam? loginSituation;
   Failure? failure;
 
   AuthenticationProvider({
@@ -71,7 +72,35 @@ class AuthenticationProvider extends ChangeNotifier {
         failure = newFailure;
         notifyListeners();
       },
-      (LogoutParam newUser) {
+      (AuthParam newUser) {
+        loginSituation = newUser;
+        failure = null;
+        notifyListeners();
+      },
+    );
+  }
+
+  Future<void> eitherFailureOrLogin(String email, String password) async {
+    AuthRepositoryImpl repository = AuthRepositoryImpl(
+      UserlocalDataSource: UserLocalDataSourceImpl(
+        sharedPreferences: await SharedPreferences.getInstance(),
+      ),
+      networkInfo: NetworkInfoImpl(
+        DataConnectionChecker(),
+      ),
+      userRemoteDataSource: UserRemoteDataSource(),
+    );
+
+    final failureOrLogin =
+        await GetLoginUseCase(authRepository: repository).call(email, password);
+
+    failureOrLogin.fold(
+      (Failure newFailure) {
+        user = null;
+        failure = newFailure;
+        notifyListeners();
+      },
+      (AuthParam newUser) {
         loginSituation = newUser;
         failure = null;
         notifyListeners();

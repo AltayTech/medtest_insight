@@ -7,7 +7,9 @@ import '../../../../../core/errors/failure.dart';
 abstract class AuthRepository {
   Future<Either<Failure, UserEntity>> getRegister(UserEntity userRegister);
 
-  Future<Either<Failure, LogoutParam>> logout();
+  Future<Either<Failure, AuthParam>> getLogin(UserEntity userLogin);
+
+  Future<Either<Failure, AuthParam>> logout();
 
 // Future<Either<Failure, AnalyseEntity>> getAnalyse(String text);
 // Future<Either<Failure, RecommendationEntity>> getRecommendation(String text);
