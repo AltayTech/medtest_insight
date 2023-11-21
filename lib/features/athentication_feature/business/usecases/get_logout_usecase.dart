@@ -11,7 +11,7 @@ class GetLogoutUseCase {
     required this.authRepository,
   });
 
-  Future<Either<Failure, LogoutParam>> call() async {
+  Future<Either<Failure, AuthParam>> call() async {
     return await authRepository.logout();
   }
 }

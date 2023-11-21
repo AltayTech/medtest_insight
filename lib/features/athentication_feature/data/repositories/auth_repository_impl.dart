@@ -52,12 +52,30 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, LogoutParam>> logout() async {
+  Future<Either<Failure, AuthParam>> logout() async {
     if (await networkInfo.isConnected!) {
       try {
-        LogoutParam logoutParam = await userRemoteDataSource.logout();
+        AuthParam logoutParam = await userRemoteDataSource.logout();
 
         return Right(logoutParam);
+
+        // localDataSource.cacheScan(scanToCache: storageScan);
+      } on ServerException {
+        return Left(ServerFailure(errorMessage: 'This is a server exception'));
+      }
+    } else {
+      return Left(CacheFailure(errorMessage: 'This is a cache exception'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AuthParam>> getLogin(UserEntity userLogin) async {
+    if (await networkInfo.isConnected!) {
+      try {
+        AuthParam loginParam =
+            await userRemoteDataSource.getLogin(userLogin: userLogin);
+
+        return Right(loginParam);
 
         // localDataSource.cacheScan(scanToCache: storageScan);
       } on ServerException {
