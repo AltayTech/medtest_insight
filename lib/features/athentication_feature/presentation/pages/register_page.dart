@@ -50,7 +50,6 @@ class _RegisterPageState extends State<RegisterPage> {
               _emailController.text, _passwordController.text);
 
       Navigator.pop(context);
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       //wrong Email

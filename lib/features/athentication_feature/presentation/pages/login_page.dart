@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/authentication_provider.dart';
 import '../widgets/my_button.dart';
 import '../widgets/my_textfield.dart';
 import '../widgets/square_tile.dart';
-
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/LoginPage';
 
   final Function()? onTap;
 
-  LoginPage({super.key,required this.onTap});
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -21,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
+
   void showmessage(String errorMessage) {
     showDialog(
         context: context,
@@ -36,16 +38,18 @@ class _LoginPageState extends State<LoginPage> {
           return Center(child: CircularProgressIndicator());
         });
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
+      await Provider.of<AuthenticationProvider>(context, listen: false)
+          .eitherFailureOrLogin(
+              _emailController.text, _passwordController.text);
       Navigator.pop(context);
+
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
       //wrong Email
       showmessage(e.code);
+      Navigator.pop(context);
+
     }
+    Navigator.pop(context);
   }
 
   @override
@@ -108,9 +112,9 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 50),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   SquareTile(imagePath: 'assets/images/google.png'),
                   SizedBox(width: 25),
                   SquareTile(imagePath: 'assets/images/apple.png'),

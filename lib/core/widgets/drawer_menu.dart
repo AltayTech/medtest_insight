@@ -26,7 +26,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               color: Colors.transparent,
             ),
             child: Text(''
-                'Weathry app'),
+                'Medical test analyse app'),
           ),
           ListTile(
             title: const Text('Login'),
