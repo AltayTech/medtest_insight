@@ -104,22 +104,22 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 50),
               const Divider(),
               const SizedBox(height: 10),
-              const Text(
-                'Or continue with',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xFF707070)),
-              ),
-              const SizedBox(height: 10),
-              const Divider(),
-              const SizedBox(height: 50),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SquareTile(imagePath: 'assets/images/google.png'),
-                  SizedBox(width: 25),
-                  SquareTile(imagePath: 'assets/images/apple.png'),
-                ],
-              ),
+              // const Text(
+              //   'Or continue with',
+              //   textAlign: TextAlign.center,
+              //   style: TextStyle(color: Color(0xFF707070)),
+              // ),
+              // const SizedBox(height: 10),
+              // const Divider(),
+              // const SizedBox(height: 50),
+              // const Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SquareTile(imagePath: 'assets/images/google.png'),
+              //     SizedBox(width: 25),
+              //     SquareTile(imagePath: 'assets/images/apple.png'),
+              //   ],
+              // ),
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
