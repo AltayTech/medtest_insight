@@ -10,6 +10,8 @@ import 'package:medtest_insight/features/scan/presentation/providers/scan_provid
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'features/athentication_feature/business/repositories/auth_repository.dart';
+import 'features/athentication_feature/business/usecases/get_login_usecase.dart';
+import 'features/athentication_feature/business/usecases/get_logout_usecase.dart';
 import 'features/athentication_feature/business/usecases/get_register_usecase.dart';
 import 'features/athentication_feature/data/datasources/user_local_data_source.dart';
 import 'features/athentication_feature/data/datasources/user_remote_data_source.dart';
@@ -52,6 +54,8 @@ setup() async {
     userRemoteDataSource: locator(),
   ));
 
+
+
   /// use case
   locator.registerSingleton<GetScanUseCase>(
       GetScanUseCase(scanRepository: locator()));
@@ -62,6 +66,11 @@ setup() async {
 
   locator.registerSingleton<GetRegisterUseCase>(
       GetRegisterUseCase(authRepository: locator()));
+
+  locator.registerSingleton<GetLogoutUseCase>(
+      GetLogoutUseCase(authRepository: locator()));
+  locator.registerSingleton<GetLoginUseCase>(
+      GetLoginUseCase(authRepository: locator()));
 
   /// statemanagement
   locator.registerSingleton<ScanProvider>(ScanProvider());
