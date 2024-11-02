@@ -46,8 +46,8 @@ dependencies:
   get_it: ^7.6.4
 #  google_ml_vision: ^0.0.8
   flutter_dotenv: ^5.1.0
-  firebase_core: ^2.22.0
-  firebase_auth: ^4.14.0
+  firebase_core: ^2.32.0
+  firebase_auth: ^4.16.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,7 +73,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/
-#     - .env
+     - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
