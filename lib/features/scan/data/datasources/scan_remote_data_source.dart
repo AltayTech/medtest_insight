@@ -13,7 +13,6 @@ class ScanRemoteDataSource {
   String? apiKey = dotenv.env['TOKEN'];
 
   final String apiUrl = 'https://api.openai.com/v1/completions';
-
   Future<RecommendationModel> getRecommendation(
       {required String analyseResult}) async {
     String prompt = '$CPrompt $analyseResult';
