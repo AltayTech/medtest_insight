@@ -54,8 +54,6 @@ setup() async {
     userRemoteDataSource: locator(),
   ));
 
-
-
   /// use case
   locator.registerSingleton<GetScanUseCase>(
       GetScanUseCase(scanRepository: locator()));

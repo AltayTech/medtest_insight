@@ -42,12 +42,10 @@ class _LoginPageState extends State<LoginPage> {
           .eitherFailureOrLogin(
               _emailController.text, _passwordController.text);
       Navigator.pop(context);
-
     } on FirebaseAuthException catch (e) {
       //wrong Email
       showmessage(e.code);
       Navigator.pop(context);
-
     }
     Navigator.pop(context);
   }

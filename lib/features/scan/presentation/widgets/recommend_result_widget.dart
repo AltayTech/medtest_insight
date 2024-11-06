@@ -17,7 +17,8 @@ class RecommendResultWidget extends StatefulWidget {
 class _RecommendResultWidgetState extends State<RecommendResultWidget> {
   @override
   Widget build(BuildContext context) {
-    RecommendationEntity? recommendationEntity = Provider.of<ScanProvider>(context).recommendationEntity;
+    RecommendationEntity? recommendationEntity =
+        Provider.of<ScanProvider>(context).recommendationEntity;
     Failure? failure = Provider.of<ScanProvider>(context).failure;
     debugPrint(recommendationEntity.toString());
     debugPrint(failure.toString());
@@ -25,7 +26,7 @@ class _RecommendResultWidgetState extends State<RecommendResultWidget> {
     if (recommendationEntity != null) {
       return Center(
           child: Text(
-            recommendationEntity.result,
+        recommendationEntity.result,
       ));
     } else if (failure != null) {
       return Center(

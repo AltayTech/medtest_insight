@@ -90,7 +90,8 @@ class _ScanScreenState extends State<ScanScreen> {
                               // border: Border.all(color: Colors.black26),
                               borderRadius: BorderRadius.circular(14),
                               border: Border.all(color: Colors.black45)),
-                          child: SingleChildScrollView(child: AnalyseResultWidget())),
+                          child: SingleChildScrollView(
+                              child: AnalyseResultWidget())),
                     ),
                   ),
                   Container(

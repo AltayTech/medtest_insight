@@ -9,5 +9,6 @@ abstract class ScanRepository {
   Future<Either<Failure, ScanEntity>> getScan();
 
   Future<Either<Failure, AnalyseEntity>> getAnalyse(String text);
+
   Future<Either<Failure, RecommendationEntity>> getRecommendation(String text);
 }

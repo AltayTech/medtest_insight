@@ -16,7 +16,8 @@ class AnalyseResultWidget extends StatefulWidget {
 class _AnalyseResultWidgetState extends State<AnalyseResultWidget> {
   @override
   Widget build(BuildContext context) {
-    AnalyseEntity? analyseResult = Provider.of<ScanProvider>(context).analyseResult;
+    AnalyseEntity? analyseResult =
+        Provider.of<ScanProvider>(context).analyseResult;
     Failure? failure = Provider.of<ScanProvider>(context).failure;
     debugPrint(analyseResult.toString());
     debugPrint(failure.toString());
@@ -24,7 +25,7 @@ class _AnalyseResultWidgetState extends State<AnalyseResultWidget> {
     if (analyseResult != null) {
       return Center(
           child: Text(
-         analyseResult.text,
+        analyseResult.text,
       ));
     } else if (failure != null) {
       return Center(
