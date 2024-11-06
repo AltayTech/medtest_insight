@@ -37,7 +37,7 @@ setup() async {
 
   locator.registerSingleton<UserLocalDataSource>(
       UserLocalDataSourceImpl(sharedPreferences: sharedPreference));
-  locator.registerSingleton<UserRemoteDataSource>(UserRemoteDataSource());
+  // locator.registerSingleton<UserRemoteDataSource>(UserRemoteDataSource());
 
   /// Repositories
   final networkInfo = NetworkInfoImpl(DataConnectionChecker());
@@ -48,11 +48,11 @@ setup() async {
     scanRemoteDataSource: locator(),
   ));
 
-  locator.registerSingleton<AuthRepository>(AuthRepositoryImpl(
-    UserlocalDataSource: locator(),
-    networkInfo: networkInfo,
-    userRemoteDataSource: locator(),
-  ));
+  // locator.registerSingleton<AuthRepository>(AuthRepositoryImpl(
+  //   UserlocalDataSource: locator(),
+  //   networkInfo: networkInfo,
+  //   userRemoteDataSource: locator(),
+  // ));
 
   /// use case
   locator.registerSingleton<GetScanUseCase>(
@@ -62,13 +62,13 @@ setup() async {
   locator.registerSingleton<GetRecommendationUseCase>(
       GetRecommendationUseCase(scanRepository: locator()));
 
-  locator.registerSingleton<GetRegisterUseCase>(
-      GetRegisterUseCase(authRepository: locator()));
+  // locator.registerSingleton<GetRegisterUseCase>(
+  //     GetRegisterUseCase(authRepository: locator()));
 
-  locator.registerSingleton<GetLogoutUseCase>(
-      GetLogoutUseCase(authRepository: locator()));
-  locator.registerSingleton<GetLoginUseCase>(
-      GetLoginUseCase(authRepository: locator()));
+  // locator.registerSingleton<GetLogoutUseCase>(
+  //     GetLogoutUseCase(authRepository: locator()));
+  // locator.registerSingleton<GetLoginUseCase>(
+  //     GetLoginUseCase(authRepository: locator()));
 
   /// statemanagement
   locator.registerSingleton<ScanProvider>(ScanProvider());
