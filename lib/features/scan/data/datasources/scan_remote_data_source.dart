@@ -14,17 +14,14 @@ class ScanRemoteDataSource {
 
   final String apiUrl = 'https://api.openai.com/v1/completions';
 
-  // 'https://api.openai.com/v1/engines/davinci-codex/completions';
-
   Future<RecommendationModel> getRecommendation(
       {required String analyseResult}) async {
-    String prompt =
-        '$CPrompt $analyseResult';
+    String prompt = '$CPrompt $analyseResult';
     debugPrint(apiKey);
 
     final response = await dio.post(
       apiUrl,
-      data:{
+      data: {
         'model': 'text-davinci-003',
         'prompt': prompt,
         'max_tokens': 1000
@@ -35,7 +32,6 @@ class ScanRemoteDataSource {
         // "prompt": "Say this is a test",
         // "max_tokens": 7,
         // "temperature": 0
-
       },
       options: Options(headers: {
         'Content-Type': 'application/json',

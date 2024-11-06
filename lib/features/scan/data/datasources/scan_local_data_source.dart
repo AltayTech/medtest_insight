@@ -6,6 +6,7 @@ import '../models/scan_model.dart';
 
 abstract class ScanLocalDataSource {
   Future<void> cacheScan({required ScanModel? scanToCache});
+
   Future<ScanModel> getLastScan();
 }
 

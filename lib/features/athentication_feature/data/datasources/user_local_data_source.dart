@@ -6,6 +6,7 @@ import '../models/user_model.dart';
 
 abstract class UserLocalDataSource {
   Future<void> cacheScan({required UserModel? userToCache});
+
   Future<UserModel> getLastScan();
 }
 

@@ -11,7 +11,8 @@ import '../../business/entities/scan_entity.dart';
 import '../models/scan_model.dart';
 
 abstract class ScanStorageDataSource {
-  Future<Either<Failure, ScanEntity>> getScan({required ImageSource imageSource});
+  Future<Either<Failure, ScanEntity>> getScan(
+      {required ImageSource imageSource});
 }
 
 class ScanStorageDataSourceImpl implements ScanStorageDataSource {
@@ -20,7 +21,8 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
   ScanStorageDataSourceImpl({required this.imagePicker});
 
   @override
-  Future<Either<Failure, ScanModel>> getScan({required ImageSource imageSource}) async {
+  Future<Either<Failure, ScanModel>> getScan(
+      {required ImageSource imageSource}) async {
     bool picked = true;
     final image = await imagePicker
         .pickImage(
@@ -41,9 +43,10 @@ class ScanStorageDataSourceImpl implements ScanStorageDataSource {
       debugPrint(picked.toString());
       debugPrint('image!.path.toString()');
       debugPrint(image!.path.toString());
-      return Right(ScanModel(image: FileImage(File(image.path)), imageSource: image)) ;
+      return Right(
+          ScanModel(image: FileImage(File(image.path)), imageSource: image));
     } else {
-      return  Left(CacheFailure(errorMessage: 'Image picking is canceled'));
+      return Left(CacheFailure(errorMessage: 'Image picking is canceled'));
     }
   }
 }
