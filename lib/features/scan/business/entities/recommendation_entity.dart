@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-import 'package:image_picker/image_picker.dart';
 
 class RecommendationEntity {
   final int? id;

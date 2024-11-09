@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
-import 'package:medtest_insight/features/scan/presentation/widgets/analyse_result_widget.dart';
-import 'package:medtest_insight/features/scan/presentation/widgets/picture_widget.dart';
-import 'package:medtest_insight/features/scan/presentation/widgets/recommend_result_widget.dart';
+import 'package:meditest/features/scan/presentation/providers/scan_provider.dart';
+import 'package:meditest/features/scan/presentation/widgets/analyse_result_widget.dart';
+import 'package:meditest/features/scan/presentation/widgets/picture_widget.dart';
+import 'package:meditest/features/scan/presentation/widgets/recommend_result_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../locator.dart';

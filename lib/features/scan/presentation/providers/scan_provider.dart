@@ -1,10 +1,10 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:medtest_insight/features/scan/business/entities/recommendation_entity.dart';
-import 'package:medtest_insight/features/scan/business/usecases/get_analyse_usecase.dart';
-import 'package:medtest_insight/features/scan/business/usecases/get_recommendation_usecase.dart';
-import 'package:medtest_insight/features/scan/data/datasources/scan_remote_data_source.dart';
+import 'package:meditest/features/scan/business/entities/recommendation_entity.dart';
+import 'package:meditest/features/scan/business/usecases/get_analyse_usecase.dart';
+import 'package:meditest/features/scan/business/usecases/get_recommendation_usecase.dart';
+import 'package:meditest/features/scan/data/datasources/scan_remote_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../core/connection/network_info.dart';

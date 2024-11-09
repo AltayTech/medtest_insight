@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/features/scan/business/entities/recommendation_entity.dart';
+import 'package:meditest/features/scan/business/entities/recommendation_entity.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/errors/failure.dart';
-import '../../business/entities/analyse_entity.dart';
-import '../../business/entities/scan_entity.dart';
 import '../providers/scan_provider.dart';
 
 class RecommendResultWidget extends StatefulWidget {

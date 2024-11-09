@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
+import 'package:meditest/features/scan/presentation/pages/scan_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

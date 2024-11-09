@@ -1,4 +1,4 @@
-import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
+import 'package:meditest/features/athentication_feature/business/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   const UserModel({

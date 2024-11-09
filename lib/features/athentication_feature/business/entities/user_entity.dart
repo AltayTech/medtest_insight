@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 
 class UserEntity {
   final int? id;

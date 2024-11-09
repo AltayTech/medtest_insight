@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET"/> <!-- Add this -->
 
     <application
-        android:label="medtest_insight"
+        android:label="Meditest"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

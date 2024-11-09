@@ -1,21 +1,15 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:medtest_insight/core/connection/network_info.dart';
-import 'package:medtest_insight/features/athentication_feature/presentation/providers/authentication_provider.dart';
-import 'package:medtest_insight/features/scan/business/usecases/get_analyse_usecase.dart';
-import 'package:medtest_insight/features/scan/business/usecases/get_recommendation_usecase.dart';
-import 'package:medtest_insight/features/scan/data/datasources/scan_remote_data_source.dart';
-import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
+import 'package:meditest/core/connection/network_info.dart';
+import 'package:meditest/features/athentication_feature/presentation/providers/authentication_provider.dart';
+import 'package:meditest/features/scan/business/usecases/get_analyse_usecase.dart';
+import 'package:meditest/features/scan/business/usecases/get_recommendation_usecase.dart';
+import 'package:meditest/features/scan/data/datasources/scan_remote_data_source.dart';
+import 'package:meditest/features/scan/presentation/providers/scan_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'features/athentication_feature/business/repositories/auth_repository.dart';
-import 'features/athentication_feature/business/usecases/get_login_usecase.dart';
-import 'features/athentication_feature/business/usecases/get_logout_usecase.dart';
-import 'features/athentication_feature/business/usecases/get_register_usecase.dart';
 import 'features/athentication_feature/data/datasources/user_local_data_source.dart';
-import 'features/athentication_feature/data/datasources/user_remote_data_source.dart';
-import 'features/athentication_feature/data/repositories/auth_repository_impl.dart';
 import 'features/scan/business/repositories/scan_repository.dart';
 import 'features/scan/business/usecases/get_scan_usecase.dart';
 import 'features/scan/data/datasources/scan_local_data_source.dart';

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:medtest_insight/features/scan/business/entities/scan_entity.dart';
+import 'package:meditest/features/scan/business/entities/scan_entity.dart';
 
 import '../../../../../core/errors/failure.dart';
 import '../entities/analyse_entity.dart';
