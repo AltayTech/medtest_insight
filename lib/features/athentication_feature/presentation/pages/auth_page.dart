@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/core/widgets/main_wrapper.dart';
-import 'package:medtest_insight/features/athentication_feature/presentation/widgets/loginOrRegister.dart';
-import 'package:medtest_insight/features/home_screen/presentation/pages/home_screen.dart';
+import 'package:meditest/core/widgets/main_wrapper.dart';
+import 'package:meditest/features/athentication_feature/presentation/widgets/loginOrRegister.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});

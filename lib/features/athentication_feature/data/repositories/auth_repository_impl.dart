@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:medtest_insight/core/params/params.dart';
-import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
-import 'package:medtest_insight/features/athentication_feature/data/models/user_model.dart';
+import 'package:meditest/core/params/params.dart';
+import 'package:meditest/features/athentication_feature/business/entities/user_entity.dart';
+import 'package:meditest/features/athentication_feature/data/models/user_model.dart';
 
 import '../../../../../core/connection/network_info.dart';
 import '../../../../../core/errors/exceptions.dart';

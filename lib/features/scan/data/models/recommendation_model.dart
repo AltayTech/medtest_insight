@@ -1,4 +1,4 @@
-import 'package:medtest_insight/features/scan/business/entities/recommendation_entity.dart';
+import 'package:meditest/features/scan/business/entities/recommendation_entity.dart';
 
 class RecommendationModel extends RecommendationEntity {
   const RecommendationModel({

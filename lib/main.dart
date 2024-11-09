@@ -1,15 +1,13 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:medtest_insight/core/widgets/main_wrapper.dart';
-import 'package:medtest_insight/features/athentication_feature/presentation/pages/auth_page.dart';
-import 'package:medtest_insight/features/athentication_feature/presentation/providers/authentication_provider.dart';
-import 'package:medtest_insight/features/scan/presentation/pages/scan_screen.dart';
-import 'package:medtest_insight/features/scan/presentation/providers/scan_provider.dart';
+import 'package:meditest/core/widgets/main_wrapper.dart';
+import 'package:meditest/features/athentication_feature/presentation/pages/auth_page.dart';
+import 'package:meditest/features/athentication_feature/presentation/providers/authentication_provider.dart';
+import 'package:meditest/features/scan/presentation/pages/scan_screen.dart';
+import 'package:meditest/features/scan/presentation/providers/scan_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'features/home_screen/presentation/pages/home_screen.dart';
-import 'firebase_options.dart';
 import 'locator.dart';
 
 void main() async {

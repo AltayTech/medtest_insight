@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:medtest_insight/features/athentication_feature/business/repositories/auth_repository.dart';
+import 'package:meditest/features/athentication_feature/business/repositories/auth_repository.dart';
 
 import '../../../../../core/errors/failure.dart';
 import '../entities/user_entity.dart';

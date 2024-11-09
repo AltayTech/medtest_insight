@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../providers/authentication_provider.dart';
 import '../widgets/my_button.dart';
 import '../widgets/my_textfield.dart';
-import '../widgets/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/LoginPage';

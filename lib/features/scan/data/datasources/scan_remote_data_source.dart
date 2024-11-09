@@ -1,9 +1,8 @@
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:medtest_insight/features/scan/data/models/recommendation_model.dart';
+import 'package:meditest/features/scan/data/models/recommendation_model.dart';
 
 import '../../../../../core/errors/exceptions.dart';
 import '../../../../core/constants/constants.dart';

@@ -1,9 +1,9 @@
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter/material.dart';
-import 'package:medtest_insight/core/params/params.dart';
-import 'package:medtest_insight/features/athentication_feature/business/entities/user_entity.dart';
-import 'package:medtest_insight/features/athentication_feature/business/usecases/get_login_usecase.dart';
-import 'package:medtest_insight/features/athentication_feature/business/usecases/get_logout_usecase.dart';
+import 'package:meditest/core/params/params.dart';
+import 'package:meditest/features/athentication_feature/business/entities/user_entity.dart';
+import 'package:meditest/features/athentication_feature/business/usecases/get_login_usecase.dart';
+import 'package:meditest/features/athentication_feature/business/usecases/get_logout_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../core/errors/failure.dart';
